@@ -1,0 +1,1 @@
+    cout << __cplusplus << endl;
