@@ -50,7 +50,7 @@ vector<string> split_string_all(string text, string delimiter) {
 
     int bookmark = 0;
     int i = 0;
-    while (i < (text_len - delimiter_len)) {
+    while (i <= (text_len - delimiter_len)) {
         assert(text.substr(i, delimiter_len).length() == delimiter_len);
         if (text.substr(i, delimiter_len) == delimiter) {
             split_vector.push_back(text.substr(bookmark, i - bookmark));
