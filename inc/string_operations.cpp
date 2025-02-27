@@ -30,6 +30,46 @@ string* split_string(string text, char delimiter) {
     return split;
 }
 
+vector<string> split_string_all(string text, string delimiter) {
+    /**
+     * @brief Splits the provided string into a vector based on all delimiters.
+     *
+     * If the string starts with a delimiter, the vector will contain an empty
+     * string at the beginning. Similarly, when there are two delimiters
+     * consecutive to each other, the empty vector will be pushed in.
+     */
+
+    vector<string> split_vector;
+
+    size_t delimiter_len = delimiter.length();
+    size_t text_len = text.length();
+
+    if (delimiter_len > text_len) {
+        split_vector.push_back(text);
+    }
+
+    int bookmark = 0;
+    int i = 0;
+    while (i < (text_len - delimiter_len)) {
+        assert(text.substr(i, delimiter_len).length() == delimiter_len);
+        if (text.substr(i, delimiter_len) == delimiter) {
+            split_vector.push_back(text.substr(bookmark, i - bookmark));
+
+            // Skip delimiter
+            i += delimiter_len;
+            bookmark = i;
+        }
+        i++;
+    }
+
+    // Add last chunk
+    if (text.substr(bookmark, text_len).length() != 0) {
+        split_vector.push_back(text.substr(bookmark));
+    }
+
+    return split_vector;
+}
+
 string strip(string text, char delimiter) {
     /**
      * @brief Takes in text. Strips the delimiter from the front and back of the

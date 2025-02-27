@@ -55,6 +55,16 @@ int get_len_line(string filename, int line_number) {
     return line.length();
 }
 
-// vector<string> split_file_by(string filename, string delimiter="\n\n") {
+string read_full_file(string filename) {
+    ifstream file(filename);
 
-// }
+    if (file.is_open()) {
+        stringstream buffer;
+        buffer << file.rdbuf();
+        string content = buffer.str();
+        return content;
+    } else {
+        cerr << "Unable to open file " << filename << "!\n";
+        return "";
+    }
+}

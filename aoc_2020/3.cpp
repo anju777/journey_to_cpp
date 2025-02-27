@@ -53,6 +53,9 @@ void solve_part_1(string filename) {
 
         curr_col = (curr_col + 3) % line_len;
     }
+
+    file.close();
+
     cout << "File " << filename << " result: " << num_trees << endl;
 }
 
@@ -135,6 +138,9 @@ void solve_part_2(string filename) {
         SkiCourse& ski_course = ski_courses[i];
         product *= ski_course.num_trees;
     }
+
+    file.close();
+
     cout << filename << "result: " << product << endl;
 }
 

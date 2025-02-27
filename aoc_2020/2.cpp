@@ -108,6 +108,8 @@ int solve_puzzle(
         }
     }
 
+    file.close();
+
     return valid_passwords;
 }
 

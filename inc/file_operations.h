@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <sstream>
 
 using namespace std;
 
@@ -11,6 +12,6 @@ int get_num_lines(string filename);
 
 int get_len_line(string filename, int line_number = 0);
 
-// vector<string> split_file_by(string filename, string delimiter="\n\n");
+string read_full_file(string filename);
 
 #endif
