@@ -16,4 +16,10 @@ string strip(string text, char delimiter = ' ');
 
 int count_char(string text, char target);
 
+string replace_all(string text, string to_replace, string replace_with);
+
+bool is_digit(char c);
+
+bool is_hex(char c);
+
 #endif

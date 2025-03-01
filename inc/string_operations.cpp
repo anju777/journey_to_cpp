@@ -115,3 +115,44 @@ int count_char(string text, char target) {
 
     return count;
 }
+
+string replace_all(string text, string to_replace, string replace_with) {
+    size_t i = 0;
+    string result = "";
+    size_t text_len = text.length();
+    size_t to_replace_len = to_replace.length();
+
+    while (i < (text_len - to_replace_len)) {
+        string substring = text.substr(i, to_replace_len);
+        if (substring == to_replace) {
+            result.append(replace_with);
+            i += to_replace_len;
+        } else {
+            result.push_back(text[i]);
+            i++;
+        }
+    }
+
+    result.append(text.substr(i, text.length() - i));
+
+    return result;
+}
+
+/**
+ * @brief Returns whether the provided character is a digit or not.
+ *
+ */
+bool is_digit(char c) {
+    return (int('0') <= int(c) && int(c) <= int('9'));
+}
+
+/**
+ * @brief Returns whether the provided character is part of the hex alphabet.
+ *
+ */
+bool is_hex(char c) {
+    return (
+        (int('a') <= int(c) && int(c) <= int('f')) ||
+        (int('A') <= int(c) && int(c) <= int('F'))
+    );
+}
